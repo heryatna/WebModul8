@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen Best Hotel</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet"> 
+    <style>
+        .header-image {
+            background: url('image/hotel1.jpg') center/cover no-repeat;
+            height: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white">
+        <div class="container-fluid d-flex align-items-center p-3">
+            <div class="d-flex align-items-center flex-grow-1">
+                <img src="image/logo_hotel.png" alt="Logo Best Hotel" class="img-fluid me-3" style="max-height: 60px;">
+                <h1 class="h3 mb-0">Best Hotel</h1>
+            </div>
+            <div class="header-image flex-grow-1"></div>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Queen Best Hotel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kamar">Kamar</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fasilitas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#petualangan-alam">Petualangan Alam</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-item dropdown-toggle" href="#">Kolam Renang</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#kolam-renang-dewasa">Kolam Renang Dewasa</a></li>
+                                    <li><a class="dropdown-item" href="#kolam-renang-anak">Kolam Renang Anak</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-item dropdown-toggle" href="#">Jenis Kolam</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#kolam-reguler">Reguler</a></li>
+                                            <li><a class="dropdown-item" href="#kolam-premium">Premium</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="#sumber-air-panas">Sumber Air Panas</a></li>
+                            <li><a class="dropdown-item" href="#pusat-kebugaran">Pusat Kebugaran</a></li>
+                            <li><a class="dropdown-item" href="#ruang-rapat">Ruang Rapat</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#pesan-sekarang">Pesan Sekarang</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <!-- Video Section -->
+            <aside class="col-md-4 mb-3">
+                <h2 class="h5">Video</h2>
+                <iframe src="https://www.youtube.com/embed/V0ZmEre9PIU?si=1YLvVg554lbBD_5T" class="w-100 mb-3" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/jObOjhUkf50?si=1H-BpBUlok2X_r-2" class="w-100 mb-3" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/ldsC4HuMdCA?si=SZKYbZ1CXWiJv3u-" class="w-100 mb-3" frameborder="0" allowfullscreen></iframe>
+            </aside>
+
+            <!-- Image Gallery -->
+            <section class="col-md-8">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <img src="image/kamar_hotel1.jpg" alt="Kamar 1" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="image/kamar_hotel2.jpg" alt="Kamar 2" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="image/kamar_hotel3.png" alt="Kamar 3" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="image/kamar_hotel4.jpg" alt="Kamar 4" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="image/kamar_hotel5.jpg" alt="Kamar 5" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="image/kamar_hotel6.jpg" alt="Kamar 6" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="image/kamar_hotel7.jpg" alt="Kamar 7" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="image/kamar_hotel8.jpg" alt="Kamar 8" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="image/kamar_hotel9.jpg" alt="Kamar 9" class="img-fluid rounded">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Queen Best Hotel</p>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
