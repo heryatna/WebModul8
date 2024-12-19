@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pemesanan Kamar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f9f9f9;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+    form div {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    input[disabled] {
+      background-color: #e9e9e9;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f0f8ff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    #result form {
+      margin: 0;
+    }
+    #result label {
+      font-weight: normal;
+    }
+    #result input {
+      border: none;
+      background: none;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Form Pemesanan Kamar</h1>
+    <form id="bookingForm">
+      <div>
+        <label for="idPemesan">Id Pemesan:</label>
+        <input type="number" id="idPemesan" required>
+        <span id="idPemesanError" class="error"></span>
+      </div>
+      <div>
+        <label for="namaPemesan">Nama Pemesan:</label>
+        <input type="text" id="namaPemesan" required>
+        <span id="namaError" class="error"></span>
+      </div>
+      <div>
+        <label for="jenisKelamin">Jenis Kelamin:</label>
+        <select id="jenisKelamin" required>
+          <option value="">Pilih</option>
+          <option value="laki-laki">Laki-laki</option>
+          <option value="perempuan">Perempuan</option>
+        </select>
+        <span id="jenisKelaminError" class="error"></span>
+      </div>
+      <div>
+        <label for="nomorIdentitas">Nomor Identitas:</label>
+        <input type="text" id="nomorIdentitas" required>
+        <span id="nomorIdentitasError" class="error"></span>
+      </div>
+      <div>
+        <label for="tipeKamar">Tipe Kamar:</label>
+        <select id="tipeKamar" required onchange="hitungTotal()">
+          <option value="">--Pilih--</option>
+          <option value="standar">STANDAR</option>
+          <option value="deluxe">DELUXE</option>
+          <option value="family">FAMILY</option>
+        </select>
+      </div>
+      <div>
+        <label for="tanggalPesan">Tanggal Pesan:</label>
+        <input type="date" id="tanggalPesan" required>
+      </div>
+      <div>
+        <label for="durasi">Durasi Menginap (hari):</label>
+        <input type="number" id="durasi" required onchange="hitungTotal()">
+        <span id="durasiError" class="error"></span>
+      </div>
+      <div>
+        <label for="breakfast">Termasuk Breakfast:</label>
+        <input type="checkbox" id="breakfast" value="ya" onchange="hitungTotal()">
+      </div>
+      <div>
+        <label for="totalBayar">Total Bayar:</label>
+        <input type="text" id="totalBayar" disabled>
+      </div>
+
+      <button type="button" onclick="hitungTotal()">Hitung Total</button>
+      <button type="submit">Simpan</button>
+      <button type="reset">Batal</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function hitungTotal() {
+      const idPemesan = document.getElementById("idPemesan").value;
+      const namaPemesan = document.getElementById("namaPemesan").value;
+      const jenisKelamin = document.getElementById("jenisKelamin").value;
+      const nomorIdentitas = document.getElementById("nomorIdentitas").value;
+      const tipeKamar = document.getElementById("tipeKamar").value;
+      const tanggalPesan = document.getElementById("tanggalPesan").value;
+      const durasi = document.getElementById("durasi").value;
+      const breakfast = document.getElementById("breakfast").checked;
+
+      let isValid = true;
+
+      if (isNaN(idPemesan) || idPemesan.trim() === '') {
+        document.getElementById("idPemesanError").textContent = "Id Pemesan harus berupa angka";
+        isValid = false;
+      } else {
+        document.getElementById("idPemesanError").textContent = "";
+      }
+
+      if (nomorIdentitas.length !== 16) {
+        document.getElementById("nomorIdentitasError").textContent = "Nomor Identitas harus 16 digit";
+        isValid = false;
+      } else {
+        document.getElementById("nomorIdentitasError").textContent = "";
+      }
+
+      if (isNaN(durasi) || durasi <= 0) {
+        document.getElementById("durasiError").textContent = "Durasi Menginap harus berupa angka positif";
+        isValid = false;
+      } else {
+        document.getElementById("durasiError").textContent = "";
+      }
+
+      if (!isValid) {
+        return;
+      }
+
+      let hargaPerMalam;
+      switch (tipeKamar) {
+        case 'standar':
+          hargaPerMalam = 120000;
+          break;
+        case 'deluxe':
+          hargaPerMalam = 200000;
+          break;
+        case 'family':
+          hargaPerMalam = 400000;
+          break;
+        default:
+          hargaPerMalam = 0;
+      }
+
+      let totalHarga = hargaPerMalam * durasi;
+
+      if (durasi > 3) {
+        totalHarga *= 0.9;
+      }
+
+      if (breakfast) {
+        totalHarga += 80000;
+      }
+
+      document.getElementById("totalBayar").value = `Rp. ${totalHarga.toLocaleString('id-ID')}`;
+
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = `        
+        <form>
+          <p><label>Id Pemesan:</label> <input type="text" value="${idPemesan}" disabled></p>
+          <p><label>Nama Pemesan:</label> <input type="text" value="${namaPemesan}" disabled></p>
+          <p><label>Jenis Kelamin:</label> <input type="text" value="${jenisKelamin}" disabled></p>
+          <p><label>Nomor Identitas:</label> <input type="text" value="${nomorIdentitas}" disabled></p>
+          <p><label>Tipe Kamar:</label> <input type="text" value="${tipeKamar}" disabled></p>
+          <p><label>Tanggal Pesan:</label> <input type="text" value="${tanggalPesan}" disabled></p>
+          <p><label>Durasi Menginap:</label> <input type="text" value="${durasi}" disabled></p>
+          <p><label>Breakfast:</label> <input type="text" value="${breakfast ? 'Ya' : 'Tidak'}" disabled></p>
+          <p><label>Total Bayar:</label> <input type="text" value="Rp. ${totalHarga.toLocaleString('id-ID')}" disabled></p>
+        </form>
+      `;
+    }
+
+    document.getElementById("bookingForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      alert("Pemesanan telah disimpan.");
+      document.getElementById("bookingForm").reset();
+      document.getElementById("result").innerHTML = "";
+    });
+  </script>
+</body>
+</html>
