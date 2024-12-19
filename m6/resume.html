@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Pemesanan</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #4a4a4a;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        table {
+            width: 100%;
+            border-spacing: 0;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        th {
+            background-color: #0056b3;
+            color: #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        td {
+            background-color: #fafafa;
+            color: #555555;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        td:first-child {
+            font-weight: bold;
+            color: #333333;
+        }
+        td:last-child {
+            color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            th, td {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>    
+    <script src="js/jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Resume Pemesanan</h2>
+        <table>
+            <tr>
+                <td>Nama Pemesan</td>
+                <td id="namaPemesanResume"></td>
+            </tr>
+            <tr>
+                <td>Nomor Identitas</td>
+                <td id="nomorIdentitasResume"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td id="jenisKelaminResume"></td>
+            </tr>
+            <tr>
+                <td>Tipe Kamar</td>
+                <td id="tipeKamarResume"></td>
+            </tr>
+            <tr>
+                <td>Tanggal Pesan</td>
+                <td id="tanggalPesanResume"></td>
+            </tr>
+            <tr>
+                <td>Durasi Menginap</td>
+                <td id="durasiMenginapResume"></td>
+            </tr>
+            <tr>
+                <td>Diskon</td>
+                <td id="diskonResume"></td>
+            </tr>
+            <tr>
+                <td>Total Bayar</td>
+                <td id="totalBayarResume"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const params = new URLSearchParams(window.location.search);
+
+            // Fungsi untuk mendapatkan nilai atau default
+            const getOrDefault = (param, defaultValue) => params.get(param) || defaultValue;
+
+            $('#namaPemesanResume').text(getOrDefault('namaPemesan', 'Tidak Diketahui'));
+            $('#nomorIdentitasResume').text(getOrDefault('nomorIdentitas', '-'));
+            $('#jenisKelaminResume').text(getOrDefault('jenisKelamin', '-'));
+            $('#tipeKamarResume').text(getOrDefault('tipeKamar', '-'));
+            $('#tanggalPesanResume').text(getOrDefault('tanggalPesan', '-'));
+            $('#durasiMenginapResume').text(`${getOrDefault('durasi', 0)} Hari`);
+            $('#diskonResume').text(getOrDefault('diskon', '0%'));
+            
+            const totalBayar = Number(getOrDefault('totalBayar', 0));
+            $('#totalBayarResume').text(`Rp ${totalBayar.toLocaleString()}`);
+        });
+    </script>
+</body>
+</html>
