@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen Best Hotel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .header-logo img {
+            max-height: 60px;
+            margin-right: 10px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header-image {
+            flex: 1;
+            background-image: url('image/hotel1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 120px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        nav ul li:hover>a {
+            background-color: #575757;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        nav ul li:hover>ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            white-space: nowrap;
+        }
+
+        nav ul li ul li a {
+            padding: 8px 15px;
+        }
+
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+
+        nav.video-section {
+            width: 20%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .content {
+            width: 80%;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .content img {
+            width: calc(33.333% - 10px);
+            height: 200px;
+            object-fit: cover;
+        }
+
+        iframe {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-logo">
+            <img src="image/logo_hotel.png" alt="Logo Best Hotel">
+            <div class="header-title">Best Hotel</div>
+        </div>
+
+        <div class="header-image"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#kamar">Kamar</a></li>
+            <li>
+                <a href="#fasilitas">Fasilitas</a>
+                <ul class="dropdown">
+                    <li><a href="#petualangan-alam">Petualangan Alam</a></li>
+                    <li>
+                        <a href="#kolam-renang">Kolam Renang</a>
+                        <ul class="dropdown">
+                            <li><a href="#kolam-renang-dewasa">Kolam Renang Dewasa</a></li>
+                            <li><a href="#kolam-renang-anak">Kolam Renang Anak</a></li>
+                            <li>
+                                <a href="#jenis-kolam-anak-dewasa">Jenis Kolam</a>
+                                <ul class="dropdown">
+                                    <li><a href="#kolam-reguler">Reguler</a></li>
+                                    <li><a href="#kolam-premium">Premium</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#sumber-air-panas">Sumber Air Panas</a></li>
+                    <li><a href="#pusat-kebugaran">Pusat Kebugaran</a></li>
+                    <li><a href="#ruang-rapat">Ruang Rapat</a></li>
+                </ul>
+            </li>
+            <li><a href="#pesan-sekarang">Pesan Sekarang</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <nav class="video-section">
+            <h2>Video</h2>
+            <iframe src="https://www.youtube.com/embed/V0ZmEre9PIU?si=1YLvVg554lbBD_5T" title="Petualangan Alam" frameborder="0"></iframe>
+            <iframe src="https://www.youtube.com/embed/jObOjhUkf50?si=1H-BpBUlok2X_r-2" title="Kolam Renang Anak & Dewasa"
+                frameborder="0"></iframe>
+            <iframe src="https://www.youtube.com/embed/ldsC4HuMdCA?si=SZKYbZ1CXWiJv3u-" title="Snorkeling Jr Class"
+                frameborder="0"></iframe>
+        </nav>
+
+        <div class="content">
+            <img src="image/kamar_hotel1.jpg" alt="Kamar 1">
+            <img src="image/kamar_hotel2.jpg" alt="Kamar 2">
+            <img src="image/kamar_hotel3.png" alt="Kamar 3">
+            <img src="image/kamar_hotel4.jpg" alt="Kamar 4">
+            <img src="image/kamar_hotel5.jpg" alt="Kamar 5">
+            <img src="image/kamar_hotel6.jpg" alt="Kamar 6">
+            <img src="image/kamar_hotel7.jpg" alt="Kamar 7">
+            <img src="image/kamar_hotel8.jpg" alt="Kamar 8">
+            <img src="image/kamar_hotel9.jpg" alt="Kamar 9">
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Queen Best Hotel</p>
+    </footer>
+
+</body>
+
+</html>
